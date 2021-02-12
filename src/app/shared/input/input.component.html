@@ -1,0 +1,15 @@
+<div class="field">
+  <label>{{label}}</label>
+  <input *ngIf="controlType === 'input'" [type]="inputType" [formControl]="control" type="text">
+  <textarea [formControl]="control" *ngIf="controlType === 'textarea'"></textarea>
+
+  <div *ngIf="hasErrors()" class="ui pointing red basic label">
+    <p *ngIf="control.errors.required">Value is required</p>
+    <p *ngIf="control.errors.minlength">{{generateMinLengthText()}}</p>
+    <p *ngIf="control.errors.maxlength">{{generateMaxLengthText()}}</p>
+    <p *ngIf="control.errors.pattern">{{generatePatternErrorText()}}</p>
+    <p *ngIf="control.errors.nonUniqueUsername">{{generateNonUniqueUsernameErrorText()}}</p>
+    <p *ngIf="control.errors.noConnection">{{generateNoConnectionErrorText()}}</p>
+    <p *ngIf="control.errors.email">{{generateNoEmailErrorText()}}</p>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="">
+  <h3>Create Account</h3>
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="ui form">
+    <app-input inputType="text" label="Username" [control]="getControl('username')"></app-input>
+    <app-input inputType="password" label="Password" [control]="getControl('password')"></app-input>
+    <app-input inputType="password" label="Password Confirmation" [control]="getControl('passwordConfirmation')">
+    </app-input>
+    <p class="ui red basic label" *ngIf="validatePasswordMatch()">
+      Passwords dont match!
+    </p>
+    <p class="ui red basic label" *ngIf="this.authForm.errors?.unknownError">
+      Something happened during the signup process. Please refresh the page and try another time.
+    </p>
+    <div class="">
+      <button type="submit" [disabled]="authForm.invalid" class="ui submit button primary">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,13 @@
+<div class="header">
+  <div class="">
+    <h3>{{email.subject}}</h3>
+    <div class="">From: <i>{{email.from}}</i></div>
+    <div class="">To: <i>{{email.to}}</i></div>
+  </div>
+  <div class="">
+    <app-email-reply [email]="email"></app-email-reply>
+  </div>
+</div>
+<div class="ui divider">
+  <div class="">{{email.text}}</div>
+</div>∏
